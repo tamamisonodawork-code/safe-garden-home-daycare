@@ -2794,3 +2794,335 @@ blockquote {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* =========================================================
+   FINAL LIGHT UPDATE - LP CTA + SOFT REVEAL RESTORE
+   Added after all existing CSS. Keeps design/SEO stable.
+   ========================================================= */
+
+/* Keep the notice bar short and readable, especially on phones. */
+.notice-inner p {
+  max-width: min(100%, 680px);
+}
+
+@media (max-width: 560px) {
+  .notice-inner {
+    min-height: 48px !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    font-size: 0.8rem !important;
+    line-height: 1.28 !important;
+  }
+}
+
+/* The hero now uses one primary CTA. Keep it clean on desktop and full-width on mobile. */
+.hero-actions .btn:only-child {
+  min-width: 245px;
+}
+
+@media (max-width: 820px) {
+  .hero-actions .btn:only-child {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* Restore/strengthen the soft fade-up animation.
+   This supports common JS class names: is-visible, visible, and active. */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible,
+.reveal.visible,
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay {
+  transition-delay: 0.14s;
+}
+
+/* Slightly stagger repeated card sections when JS reveals them together. */
+.trust-grid .reveal:nth-child(2),
+.feature-grid .reveal:nth-child(2),
+.program-grid .reveal:nth-child(2),
+.activity-grid .reveal:nth-child(2),
+.review-grid .reveal:nth-child(2),
+.gallery-grid .reveal:nth-child(2) {
+  transition-delay: 0.08s;
+}
+
+.trust-grid .reveal:nth-child(3),
+.feature-grid .reveal:nth-child(3),
+.program-grid .reveal:nth-child(3),
+.activity-grid .reveal:nth-child(3),
+.review-grid .reveal:nth-child(3),
+.gallery-grid .reveal:nth-child(3) {
+  transition-delay: 0.14s;
+}
+
+.trust-grid .reveal:nth-child(4),
+.feature-grid .reveal:nth-child(4),
+.activity-grid .reveal:nth-child(4),
+.gallery-grid .reveal:nth-child(4) {
+  transition-delay: 0.20s;
+}
+
+/* Progressive enhancement: modern browsers get scroll-linked fade even if the JS class is delayed.
+   Older browsers simply use the JS-based reveal above. */
+@supports (animation-timeline: view()) {
+  .reveal:not(.is-visible):not(.visible):not(.active) {
+    animation: revealFadeUp both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 22%;
+  }
+}
+
+@keyframes revealFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keep the floating hero image soft but not distracting. */
+.hero-blob {
+  animation: floatSoft 5.5s ease-in-out infinite !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible,
+  .reveal.visible,
+  .reveal.active {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .hero-blob {
+    animation: none !important;
+  }
+}
+
+/* ===== Hero single CTA: larger waitlist button ===== */
+.hero-actions-single {
+  justify-content: flex-start;
+}
+
+.hero-waitlist-btn,
+.hero-actions-single .btn-primary {
+  min-width: 360px;
+  min-height: 70px;
+  padding: 0 52px;
+  font-size: 1.18rem;
+  border-radius: 999px;
+}
+
+@media (max-width: 820px) {
+  .hero-waitlist-btn,
+  .hero-actions-single .btn-primary {
+    width: 100%;
+    min-width: 0;
+    min-height: 62px;
+    padding: 0 30px;
+    font-size: 1.08rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-waitlist-btn,
+  .hero-actions-single .btn-primary {
+    min-height: 58px;
+    font-size: 1.02rem;
+    padding: 0 22px;
+  }
+}
+
+/* =========================================================
+   STABLE SOFT MOTION + LIGHTBOX FINAL
+   - No repeated in/out motion, so desktop scroll does not jitter
+   - Soft Ariake-style fade-up once per element
+   - Keeps image click-to-enlarge
+   ========================================================= */
+
+html:not(.motion-ready) .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+html.motion-ready .reveal {
+  opacity: 0;
+  transform: translate3d(0, 26px, 0);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+html.motion-ready .reveal.is-visible,
+html.motion-ready .reveal.visible,
+html.motion-ready .reveal.active {
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+
+/* A slightly more visible float for photo/card blocks, but only once. */
+html.motion-ready .image-card.reveal,
+html.motion-ready .portrait-card.reveal,
+html.motion-ready .gallery-grid img.reveal,
+html.motion-ready .review-card.reveal,
+html.motion-ready .feature-card.reveal,
+html.motion-ready .trust-card.reveal,
+html.motion-ready .seo-summary-card.reveal,
+html.motion-ready .contact-card.reveal,
+html.motion-ready .google-form-card.reveal {
+  transform: translate3d(0, 34px, 0);
+}
+
+html.motion-ready .image-card.reveal.is-visible,
+html.motion-ready .portrait-card.reveal.is-visible,
+html.motion-ready .gallery-grid img.reveal.is-visible,
+html.motion-ready .review-card.reveal.is-visible,
+html.motion-ready .feature-card.reveal.is-visible,
+html.motion-ready .trust-card.reveal.is-visible,
+html.motion-ready .seo-summary-card.reveal.is-visible,
+html.motion-ready .contact-card.reveal.is-visible,
+html.motion-ready .google-form-card.reveal.is-visible {
+  transform: translate3d(0, 0, 0) !important;
+}
+
+/* Disable old experimental scroll-linked animations so desktop does not feel jumpy. */
+@supports (animation-timeline: view()) {
+  html.motion-ready .reveal,
+  html.motion-ready .reveal:not(.is-visible):not(.visible):not(.active) {
+    animation: none !important;
+    animation-timeline: auto !important;
+  }
+}
+
+@media (max-width: 560px) {
+  html.motion-ready .reveal {
+    transform: translate3d(0, 20px, 0);
+    transition-duration: 0.78s;
+  }
+
+  html.motion-ready .image-card.reveal,
+  html.motion-ready .portrait-card.reveal,
+  html.motion-ready .gallery-grid img.reveal,
+  html.motion-ready .review-card.reveal,
+  html.motion-ready .feature-card.reveal,
+  html.motion-ready .trust-card.reveal,
+  html.motion-ready .seo-summary-card.reveal,
+  html.motion-ready .contact-card.reveal,
+  html.motion-ready .google-form-card.reveal {
+    transform: translate3d(0, 24px, 0);
+  }
+}
+
+.is-lightbox-ready {
+  cursor: zoom-in;
+}
+
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  background: rgba(24, 31, 24, 0.76);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease;
+}
+
+.image-lightbox.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.image-lightbox-img {
+  max-width: min(94vw, 1120px);
+  max-height: 86vh;
+  object-fit: contain;
+  border: 10px solid rgba(255, 255, 255, 0.92);
+  border-radius: 24px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+  transform: scale(0.985);
+  transition: transform 0.22s ease;
+}
+
+.image-lightbox.is-open .image-lightbox-img {
+  transform: scale(1);
+}
+
+.image-lightbox-close {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 10001;
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--green-deep);
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+body.lightbox-open {
+  overflow: hidden;
+}
+
+@media (max-width: 560px) {
+  .image-lightbox {
+    padding: 16px;
+  }
+
+  .image-lightbox-img {
+    max-width: 94vw;
+    max-height: 82vh;
+    border-width: 6px;
+    border-radius: 18px;
+  }
+
+  .image-lightbox-close {
+    top: 12px;
+    right: 12px;
+    width: 42px;
+    height: 42px;
+    font-size: 1.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.motion-ready .reveal,
+  html.motion-ready .reveal.is-visible,
+  html.motion-ready .reveal.visible,
+  html.motion-ready .reveal.active,
+  .image-lightbox,
+  .image-lightbox-img {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
