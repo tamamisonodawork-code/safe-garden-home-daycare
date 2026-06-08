@@ -1283,8 +1283,6 @@
       dot.addEventListener('click', () => goTo(index));
     });
 
-    carousel.addEventListener('mouseenter', stopAutoplay);
-    carousel.addEventListener('mouseleave', startAutoplay);
     window.addEventListener('resize', () => {
       render();
       restartAutoplay();
