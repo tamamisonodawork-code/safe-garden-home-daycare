@@ -6385,29 +6385,37 @@ h1 {
 }
 
 /* =========================================================
-   FINAL MOBILE TOP CTA → FV GAP FIX
-   Reduces the gap between the top waiting-list bar and the first FV image on mobile.
+   FINAL STRONG MOBILE CTA → FV GAP FIX
+   Further reduces the visible gap between the waiting-list bar and first FV image on mobile.
    ========================================================= */
 
 @media (max-width: 900px) {
   .hero.hero-full-slider {
-    padding-top: 12px;
+    padding-top: 0 !important;
   }
 
   .fv-peek-carousel {
-    margin-top: 0;
+    margin-top: 0 !important;
+  }
+
+  .fv-peek-stage {
+    margin-top: 0 !important;
   }
 }
 
 @media (max-width: 560px) {
   .hero.hero-full-slider {
-    padding-top: 8px;
+    padding-top: 0 !important;
+  }
+
+  .fv-peek-carousel {
+    margin-top: -2px !important;
   }
 
   .notice-cta-inner {
-    min-height: 116px;
-    padding-top: 14px;
-    padding-bottom: 14px;
+    min-height: 108px;
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
 }
 
