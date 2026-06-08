@@ -6293,3 +6293,126 @@ h1 {
   }
 }
 
+
+
+/* =========================================================
+   EMERGENCY FIRST-LOAD FV FIX - 2026-06-08
+   Keeps the FV carousel stable before JS, after reload, and after cached assets.
+   ========================================================= */
+.hero.hero-full-slider {
+  padding-top: clamp(34px, 4.2vw, 58px) !important;
+}
+
+.fv-peek-carousel {
+  position: relative !important;
+  width: min(1280px, calc(100% - 40px)) !important;
+  margin: 28px auto 18px !important;
+}
+
+.fv-peek-stage {
+  position: relative !important;
+  aspect-ratio: 1600 / 650 !important;
+  min-height: 245px !important;
+  overflow: visible !important;
+}
+
+.fv-peek-slide {
+  position: absolute !important;
+  top: 0 !important;
+  left: 50% !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform-origin: center center !important;
+}
+
+.fv-peek-slide picture,
+.fv-peek-slide img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.fv-peek-slide img {
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+@media (min-width: 901px) {
+  .fv-pos-center {
+    width: 52% !important;
+    height: 94% !important;
+    opacity: 1 !important;
+    z-index: 3 !important;
+    transform: translateX(-50%) translateY(0) scale(1) !important;
+    pointer-events: auto !important;
+  }
+
+  .fv-pos-left {
+    width: 32% !important;
+    height: 76% !important;
+    opacity: 1 !important;
+    z-index: 1 !important;
+    transform: translateX(-139%) translateY(14%) scale(0.92) !important;
+    pointer-events: auto !important;
+  }
+
+  .fv-pos-right {
+    width: 32% !important;
+    height: 76% !important;
+    opacity: 1 !important;
+    z-index: 1 !important;
+    transform: translateX(39%) translateY(14%) scale(0.92) !important;
+    pointer-events: auto !important;
+  }
+
+  .fv-hidden {
+    width: 32% !important;
+    height: 76% !important;
+    opacity: 0 !important;
+    z-index: 0 !important;
+    transform: translateX(-50%) scale(0.9) !important;
+    pointer-events: none !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .fv-peek-carousel {
+    width: min(100%, calc(100% - 24px)) !important;
+    margin-top: 22px !important;
+  }
+
+  .fv-peek-stage {
+    aspect-ratio: 1 / 1 !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    border-radius: 24px !important;
+  }
+
+  .fv-peek-slide,
+  .fv-pos-center,
+  .fv-pos-left,
+  .fv-pos-right,
+  .fv-hidden {
+    width: 100% !important;
+    height: 100% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    filter: none !important;
+  }
+
+  .fv-pos-center {
+    opacity: 1 !important;
+    z-index: 2 !important;
+    pointer-events: auto !important;
+  }
+
+  .fv-pos-left,
+  .fv-pos-right,
+  .fv-hidden {
+    opacity: 0 !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+  }
+}

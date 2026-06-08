@@ -245,7 +245,7 @@
 }
   </script>
 
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=20260608-fix1" />
 
   <style>
     /* FAQ accordion polish - kept inside index.html so only HTML needs to be replaced */
@@ -348,6 +348,142 @@
       .faq-card.faq-accordion-item p {
         padding: 0 18px 18px;
         font-size: 0.94rem;
+      }
+    }
+  </style>
+
+
+  <style id="fv-first-load-fix">
+    /* First-load FV fix: keeps the carousel in its intended layout before/after JS runs. */
+    .hero.hero-full-slider {
+      padding-top: clamp(34px, 4.2vw, 58px) !important;
+    }
+
+    .fv-peek-carousel {
+      position: relative !important;
+      width: min(1280px, calc(100% - 40px)) !important;
+      margin: 28px auto 18px !important;
+    }
+
+    .fv-peek-stage {
+      position: relative !important;
+      aspect-ratio: 1600 / 650 !important;
+      min-height: 245px !important;
+      overflow: visible !important;
+    }
+
+    .fv-peek-slide {
+      position: absolute !important;
+      top: 0 !important;
+      left: 50% !important;
+      margin: 0 !important;
+      overflow: hidden !important;
+      border-radius: 24px !important;
+      background: #dcd6c9 !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      transform-origin: center center !important;
+    }
+
+    .fv-peek-slide picture,
+    .fv-peek-slide img {
+      display: block !important;
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    .fv-peek-slide img {
+      object-fit: cover !important;
+      object-position: center center !important;
+    }
+
+    @media (min-width: 901px) {
+      .fv-pos-center {
+        width: 52% !important;
+        height: 94% !important;
+        opacity: 1 !important;
+        z-index: 3 !important;
+        transform: translateX(-50%) translateY(0) scale(1) !important;
+        pointer-events: auto !important;
+      }
+
+      .fv-pos-left {
+        width: 32% !important;
+        height: 76% !important;
+        opacity: 1 !important;
+        z-index: 1 !important;
+        transform: translateX(-139%) translateY(14%) scale(0.92) !important;
+        pointer-events: auto !important;
+      }
+
+      .fv-pos-right {
+        width: 32% !important;
+        height: 76% !important;
+        opacity: 1 !important;
+        z-index: 1 !important;
+        transform: translateX(39%) translateY(14%) scale(0.92) !important;
+        pointer-events: auto !important;
+      }
+
+      .fv-hidden {
+        width: 32% !important;
+        height: 76% !important;
+        opacity: 0 !important;
+        z-index: 0 !important;
+        transform: translateX(-50%) scale(0.9) !important;
+        pointer-events: none !important;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .fv-peek-carousel {
+        width: min(100%, calc(100% - 24px)) !important;
+        margin-top: 22px !important;
+      }
+
+      .fv-peek-stage {
+        aspect-ratio: 1 / 1 !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+        border-radius: 24px !important;
+      }
+
+      .fv-peek-slide,
+      .fv-pos-center,
+      .fv-pos-left,
+      .fv-pos-right,
+      .fv-hidden {
+        width: 100% !important;
+        height: 100% !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        filter: none !important;
+      }
+
+      .fv-pos-center {
+        opacity: 1 !important;
+        z-index: 2 !important;
+        pointer-events: auto !important;
+      }
+
+      .fv-pos-left,
+      .fv-pos-right,
+      .fv-hidden {
+        opacity: 0 !important;
+        z-index: 1 !important;
+        pointer-events: none !important;
+      }
+
+      .hero-title {
+        max-width: 390px !important;
+        font-size: clamp(2.05rem, 8.7vw, 2.75rem) !important;
+        line-height: 1.04 !important;
+        letter-spacing: -0.048em !important;
+      }
+
+      .hero-title-line {
+        display: block !important;
+        white-space: nowrap !important;
       }
     }
   </style>
@@ -1188,109 +1324,128 @@
   <button onclick="acceptCookie()">Got it</button>
 </div>
 
-<script src="js/script.js"></script>
+<script src="js/script.js?v=20260608-fix1"></script>
 <script>
   (function () {
-    const carousel = document.querySelector('.fv-peek-carousel');
-    if (!carousel) return;
+    function initFvCarousel() {
+      const carousel = document.querySelector('.fv-peek-carousel');
+      if (!carousel || carousel.dataset.fvReady === 'yes') return;
+      carousel.dataset.fvReady = 'yes';
 
-    const slides = Array.from(carousel.querySelectorAll('.fv-peek-slide'));
-    const dots = Array.from(carousel.querySelectorAll('.fv-peek-dots button'));
-    const prevBtn = carousel.querySelector('.fv-peek-prev');
-    const nextBtn = carousel.querySelector('.fv-peek-next');
-    const total = slides.length;
-    let current = 0;
-    let timer;
+      const slides = Array.from(carousel.querySelectorAll('.fv-peek-slide'));
+      const dots = Array.from(carousel.querySelectorAll('.fv-peek-dots button'));
+      const prevBtn = carousel.querySelector('.fv-peek-prev');
+      const nextBtn = carousel.querySelector('.fv-peek-next');
+      const total = slides.length;
+      if (!total) return;
 
-    function render() {
-      const prev = (current - 1 + total) % total;
-      const next = (current + 1) % total;
+      let current = Math.max(0, slides.findIndex((slide) => slide.classList.contains('fv-pos-center')));
+      let timer = null;
+      let resizeTimer = null;
 
-      slides.forEach((slide, index) => {
-        slide.classList.remove('fv-pos-left', 'fv-pos-center', 'fv-pos-right', 'fv-hidden');
+      function render() {
+        const prev = (current - 1 + total) % total;
+        const next = (current + 1) % total;
+        const isMobile = window.matchMedia('(max-width: 900px)').matches;
 
-        if (window.innerWidth <= 900) {
-          if (index === current) {
+        slides.forEach((slide, index) => {
+          slide.classList.remove('fv-pos-left', 'fv-pos-center', 'fv-pos-right', 'fv-hidden');
+
+          if (isMobile) {
+            slide.classList.add(index === current ? 'fv-pos-center' : 'fv-hidden');
+          } else if (index === prev) {
+            slide.classList.add('fv-pos-left');
+          } else if (index === current) {
             slide.classList.add('fv-pos-center');
+          } else if (index === next) {
+            slide.classList.add('fv-pos-right');
           } else {
             slide.classList.add('fv-hidden');
           }
-          return;
-        }
+        });
 
-        if (index === prev) {
-          slide.classList.add('fv-pos-left');
-        } else if (index === current) {
-          slide.classList.add('fv-pos-center');
-        } else if (index === next) {
-          slide.classList.add('fv-pos-right');
-        } else {
-          slide.classList.add('fv-hidden');
-        }
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('is-active', index === current);
+          dot.setAttribute('aria-pressed', String(index === current));
+        });
+      }
+
+      function goTo(index, shouldRestart = true) {
+        current = (index + total) % total;
+        render();
+        if (shouldRestart) restartAutoplay();
+      }
+
+      function next() {
+        goTo(current + 1, false);
+      }
+
+      function prev() {
+        goTo(current - 1, false);
+      }
+
+      function getAutoplayDelay() {
+        return window.matchMedia('(max-width: 900px)').matches ? 5000 : 4500;
+      }
+
+      function stopAutoplay() {
+        if (timer) window.clearInterval(timer);
+        timer = null;
+      }
+
+      function startAutoplay() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        stopAutoplay();
+        timer = window.setInterval(next, getAutoplayDelay());
+      }
+
+      function restartAutoplay() {
+        stopAutoplay();
+        startAutoplay();
+      }
+
+      prevBtn?.addEventListener('click', () => {
+        prev();
+        restartAutoplay();
+      });
+
+      nextBtn?.addEventListener('click', () => {
+        next();
+        restartAutoplay();
       });
 
       dots.forEach((dot, index) => {
-        dot.classList.toggle('is-active', index === current);
+        dot.setAttribute('aria-pressed', String(index === current));
+        dot.addEventListener('click', () => goTo(index));
       });
-    }
 
-    function goTo(index) {
-      current = (index + total) % total;
+      carousel.addEventListener('mouseenter', stopAutoplay);
+      carousel.addEventListener('mouseleave', startAutoplay);
+
+      window.addEventListener('resize', () => {
+        window.clearTimeout(resizeTimer);
+        resizeTimer = window.setTimeout(() => {
+          render();
+          restartAutoplay();
+        }, 120);
+      });
+
+      // Render immediately, then render again after assets/fonts/images finish loading.
       render();
-      restartAutoplay();
-    }
+      window.requestAnimationFrame(render);
+      window.addEventListener('load', () => {
+        render();
+        window.setTimeout(render, 120);
+      }, { once: true });
 
-    function next() {
-      current = (current + 1) % total;
-      render();
-    }
-
-    function prev() {
-      current = (current - 1 + total) % total;
-      render();
-    }
-
-    function getAutoplayDelay() {
-      return window.innerWidth <= 900 ? 5000 : 4500;
-    }
-
-    function startAutoplay() {
-      stopAutoplay();
-      timer = setInterval(next, getAutoplayDelay());
-    }
-
-    function stopAutoplay() {
-      if (timer) clearInterval(timer);
-    }
-
-    function restartAutoplay() {
-      stopAutoplay();
       startAutoplay();
     }
 
-    prevBtn.addEventListener('click', () => {
-      prev();
-      restartAutoplay();
-    });
-
-    nextBtn.addEventListener('click', () => {
-      next();
-      restartAutoplay();
-    });
-
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => goTo(index));
-    });
-
-    carousel.addEventListener('mouseenter', stopAutoplay);
-    carousel.addEventListener('mouseleave', startAutoplay);
-    window.addEventListener('resize', () => {
-      render();
-      restartAutoplay();
-    });
-
-    render();
-    startAutoplay();
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initFvCarousel, { once: true });
+    } else {
+      initFvCarousel();
+    }
   })();
 </script>
 </body>
