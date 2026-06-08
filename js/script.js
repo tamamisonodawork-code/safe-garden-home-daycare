@@ -318,11 +318,3 @@ if (lightboxImages.length) {
   start();
 })();
 
-
-
-// First-load safety reflow for image/font-dependent layouts.
-window.addEventListener("load", () => {
-  requestAnimationFrame(() => {
-    window.dispatchEvent(new Event("resize"));
-  });
-});
