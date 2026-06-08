@@ -6293,37 +6293,6 @@ h1 {
   }
 }
 
-/* =========================================================
-   FINAL SAFARI / DESKTOP FV GAP FIX
-   Reduces the large blank space above the first-view carousel on desktop.
-   Keeps mobile spacing comfortable.
-   ========================================================= */
-
-@media (min-width: 901px) {
-  .hero.hero-full-slider {
-    padding-top: 52px;
-  }
-
-  .fv-peek-carousel {
-    margin-top: 0;
-  }
-
-  .fv-peek-stage {
-    min-height: 300px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .hero.hero-full-slider {
-    padding-top: 46px;
-  }
-}
-
-@media (max-width: 900px) {
-  .hero.hero-full-slider {
-    padding-top: 28px;
-  }
-}
 
 /* =========================================================
    FINAL COOKIE BAR LAYOUT POLISH
@@ -6375,6 +6344,43 @@ h1 {
     min-width: 76px;
     min-height: 40px;
     padding: 0 14px;
+  }
+}
+
+/* =========================================================
+   FINAL FIRST-LOAD FV GAP FIX
+   Prevents a large blank area above the FV carousel before interaction/reload.
+   ========================================================= */
+
+.hero.hero-full-slider {
+  min-height: auto;
+}
+
+@media (min-width: 901px) {
+  .hero.hero-full-slider {
+    padding-top: 38px;
+    padding-bottom: 36px;
+  }
+
+  .fv-peek-carousel {
+    margin-top: 0;
+    margin-bottom: 22px;
+  }
+
+  .fv-peek-stage {
+    min-height: 300px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero.hero-full-slider {
+    padding-top: 34px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero.hero-full-slider {
+    padding-top: 26px;
   }
 }
 
