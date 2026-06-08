@@ -389,8 +389,7 @@
       transform: translateX(12%);
     }
 
-    .fv-peek-arrow,
-    .fv-peek-dots {
+    .fv-peek-arrow {
       position: absolute;
       z-index: 5;
     }
@@ -430,15 +429,7 @@
       }
     }
   </style>
-
-  
-  <style id="critical-fv-hide-dots">
-    .fv-peek-dots {
-      display: none !important;
-    }
-  </style>
-
-  <link rel="stylesheet" href="css/style.css?v=20260608-3" />
+  <link rel="stylesheet" href="css/style.css?v=20260608-4" />
 
   <style>
     /* FAQ accordion polish - kept inside index.html so only HTML needs to be replaced */
@@ -648,13 +639,7 @@
 
         <button class="fv-peek-arrow fv-peek-prev" type="button" aria-label="Previous daycare photo">‹</button>
         <button class="fv-peek-arrow fv-peek-next" type="button" aria-label="Next daycare photo">›</button>
-
-        <div class="fv-peek-dots" aria-label="Photo slider controls">
-          <button class="is-active" type="button" aria-label="Show photo 1"></button>
-          <button type="button" aria-label="Show photo 2"></button>
-          <button type="button" aria-label="Show photo 3"></button>
-        </div>
-      </div>
+</div>
 
       <div class="container hero-full-copy reveal">
         <p class="eyebrow segment-pill segment-pill-owner">Licensed owner-led care in Coquitlam</p>
@@ -1382,15 +1367,14 @@
   <button onclick="acceptCookie()">Got it</button>
 </div>
 
-<script src="js/script.js?v=20260608-3"></script>
+<script src="js/script.js?v=20260608-4"></script>
 <script>
   (function () {
     const carousel = document.querySelector('.fv-peek-carousel');
     if (!carousel) return;
 
     const slides = Array.from(carousel.querySelectorAll('.fv-peek-slide'));
-    const dots = Array.from(carousel.querySelectorAll('.fv-peek-dots button'));
-    const prevBtn = carousel.querySelector('.fv-peek-prev');
+const prevBtn = carousel.querySelector('.fv-peek-prev');
     const nextBtn = carousel.querySelector('.fv-peek-next');
     const total = slides.length;
     let current = 0;
@@ -1422,19 +1406,8 @@
           slide.classList.add('fv-hidden');
         }
       });
-
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('is-active', index === current);
-      });
-    }
-
-    function goTo(index) {
-      current = (index + total) % total;
-      render();
-      restartAutoplay();
-    }
-
-    function next() {
+}
+function next() {
       current = (current + 1) % total;
       render();
     }
@@ -1471,12 +1444,7 @@
       next();
       restartAutoplay();
     });
-
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => goTo(index));
-    });
-
-    window.addEventListener('resize', () => {
+window.addEventListener('resize', () => {
       render();
       restartAutoplay();
     });

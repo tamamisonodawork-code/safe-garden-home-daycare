@@ -2326,7 +2326,6 @@ blockquote {
 }
 
 
-
 /* ===== Cookie Notice: final polished version ===== */
 
 .cookie {
@@ -2704,8 +2703,6 @@ blockquote {
 }
 
 
-
-
 /* ===== FORCE mobile notice Join button green ===== */
 
 @media (max-width: 560px) {
@@ -3033,98 +3030,13 @@ html.motion-ready .google-form-card.reveal.is-visible {
   }
 }
 
-.is-lightbox-ready {
-  cursor: zoom-in;
-}
-
-.image-lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 10000;
-  display: grid;
-  place-items: center;
-  padding: 28px;
-  background: rgba(24, 31, 24, 0.76);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.22s ease;
-}
-
-.image-lightbox.is-open {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.image-lightbox-img {
-  max-width: min(94vw, 1120px);
-  max-height: 86vh;
-  object-fit: contain;
-  border: 10px solid rgba(255, 255, 255, 0.92);
-  border-radius: 24px;
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
-  transform: scale(0.985);
-  transition: transform 0.22s ease;
-}
-
-.image-lightbox.is-open .image-lightbox-img {
-  transform: scale(1);
-}
-
-.image-lightbox-close {
-  position: fixed;
-  top: 18px;
-  right: 18px;
-  z-index: 10001;
-  width: 46px;
-  height: 46px;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.96);
-  color: var(--green-deep);
-  font-size: 2rem;
-  line-height: 1;
-  font-weight: 800;
-  cursor: pointer;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
-}
-
-body.lightbox-open {
-  overflow: hidden;
-}
-
-@media (max-width: 560px) {
-  .image-lightbox {
-    padding: 16px;
-  }
-
-  .image-lightbox-img {
-    max-width: 94vw;
-    max-height: 82vh;
-    border-width: 6px;
-    border-radius: 18px;
-  }
-
-  .image-lightbox-close {
-    top: 12px;
-    right: 12px;
-    width: 42px;
-    height: 42px;
-    font-size: 1.8rem;
-  }
-}
 
 @media (prefers-reduced-motion: reduce) {
   html.motion-ready .reveal,
   html.motion-ready .reveal.is-visible,
   html.motion-ready .reveal.visible,
   html.motion-ready .reveal.active,
-  .image-lightbox,
-  .image-lightbox-img {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-    animation: none !important;
-  }
+
 }
 
 /* =========================================================
@@ -4608,152 +4520,6 @@ html.motion-ready .mid-cta-card.reveal.is-visible:hover {
   top: clamp(360px, 32vw, 520px);
 }
 
-.hero-slider-full {
-  position: relative;
-  width: 100%;
-  height: clamp(360px, 32vw, 520px);
-  overflow: hidden;
-  background: var(--peach-soft);
-  isolation: isolate;
-}
-
-.hero-slider-track {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.hero-slide {
-  position: absolute;
-  inset: 0;
-  margin: 0;
-  opacity: 0;
-  transform: translateX(8%) scale(1.018);
-  transition:
-    opacity 0.68s ease,
-    transform 0.68s ease;
-  pointer-events: none;
-}
-
-.hero-slide.is-active {
-  opacity: 1;
-  transform: translateX(0) scale(1);
-  pointer-events: auto;
-  z-index: 1;
-}
-
-.hero-slide.is-exiting {
-  opacity: 0;
-  transform: translateX(-7%) scale(1.012);
-}
-
-.hero-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.hero-slider-full::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background:
-    linear-gradient(90deg, rgba(255, 248, 236, 0.18) 0%, transparent 18%, transparent 82%, rgba(255, 248, 236, 0.16) 100%),
-    linear-gradient(180deg, rgba(255, 248, 236, 0.04) 0%, rgba(255, 248, 236, 0.10) 100%);
-}
-
-.hero-slider-arrow {
-  position: absolute;
-  top: 50%;
-  z-index: 5;
-  transform: translateY(-50%);
-  display: inline-grid;
-  place-items: center;
-  width: 54px;
-  height: 54px;
-  border: 0;
-  border-radius: 999px;
-  background: linear-gradient(180deg, #61a847 0%, #45a12e 100%);
-  color: #ffffff;
-  font-size: 2.25rem;
-  font-weight: 900;
-  line-height: 1;
-  cursor: pointer;
-  box-shadow:
-    0 12px 26px rgba(47, 111, 59, 0.30),
-    inset 0 1px 0 rgba(255, 255, 255, 0.34);
-  transition:
-    transform 0.18s ease,
-    box-shadow 0.18s ease,
-    background 0.18s ease;
-}
-
-.hero-slider-prev {
-  left: max(24px, calc((100vw - var(--max)) / 2 + 12px));
-}
-
-.hero-slider-next {
-  right: max(24px, calc((100vw - var(--max)) / 2 + 12px));
-}
-
-.hero-slider-arrow:hover {
-  transform: translateY(-50%) scale(1.06);
-  background: linear-gradient(180deg, #6abb48 0%, #3d9729 100%);
-  box-shadow:
-    0 16px 32px rgba(47, 111, 59, 0.36),
-    inset 0 1px 0 rgba(255, 255, 255, 0.38);
-}
-
-.hero-slider-arrow:active {
-  transform: translateY(-50%) scale(0.96);
-}
-
-.hero-slider-dots {
-  position: absolute;
-  left: 50%;
-  bottom: 26px;
-  z-index: 6;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 10px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.78);
-  box-shadow: 0 10px 22px rgba(56, 70, 45, 0.12);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.hero-slider-dots button {
-  width: 9px;
-  height: 9px;
-  padding: 0;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(47, 111, 59, 0.32);
-  cursor: pointer;
-  transition:
-    width 0.18s ease,
-    background 0.18s ease,
-    transform 0.18s ease;
-}
-
-.hero-slider-dots button.is-active {
-  width: 24px;
-  background: var(--green-dark);
-}
-
-.hero-slider-arrow:focus-visible,
-.hero-slider-dots button:focus-visible {
-  outline: 3px solid rgba(79, 138, 87, 0.36);
-  outline-offset: 4px;
-}
-
 .hero-full-copy {
   position: relative;
   z-index: 4;
@@ -4810,31 +4576,11 @@ html.motion-ready .mid-cta-card.reveal.is-visible:hover {
     padding-bottom: 54px !important;
   }
 
-  .hero-slider-full {
-    height: 300px;
-  }
 
   .hero-full-slider::after {
     top: 300px;
   }
 
-  .hero-slider-arrow {
-    width: 44px;
-    height: 44px;
-    font-size: 1.9rem;
-  }
-
-  .hero-slider-prev {
-    left: 14px;
-  }
-
-  .hero-slider-next {
-    right: 14px;
-  }
-
-  .hero-slider-dots {
-    bottom: 18px;
-  }
 
   .hero-full-copy {
     margin-top: 42px;
@@ -4867,9 +4613,7 @@ html.motion-ready .mid-cta-card.reveal.is-visible:hover {
 }
 
 @media (max-width: 560px) {
-  .hero-slider-full {
-    height: 260px;
-  }
+
 
   .hero-full-slider::before,
   .hero-full-slider::after {
@@ -4881,16 +4625,6 @@ html.motion-ready .mid-cta-card.reveal.is-visible:hover {
     top: 260px;
   }
 
-  .hero-slider-arrow {
-    width: 40px;
-    height: 40px;
-    font-size: 1.7rem;
-  }
-
-  .hero-slider-dots {
-    bottom: 14px;
-    padding: 6px 8px;
-  }
 
   .hero-full-copy {
     margin-top: 34px;
@@ -4898,12 +4632,6 @@ html.motion-ready .mid-cta-card.reveal.is-visible:hover {
 
   .hero-full-copy .hero-facts {
     margin-top: 22px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-slide {
-    transition: none !important;
   }
 }
 
@@ -4942,11 +4670,6 @@ html.motion-ready .mid-cta-card.reveal.is-visible:hover {
   margin-top: 24px !important;
 }
 
-/* Keep the slider visible and not overly tall on desktop */
-.hero-slider-full {
-  height: clamp(330px, 29vw, 460px) !important;
-}
-
 .hero-full-slider::after {
   top: clamp(330px, 29vw, 460px) !important;
 }
@@ -4957,9 +4680,6 @@ html.motion-ready .mid-cta-card.reveal.is-visible:hover {
     padding-bottom: 42px !important;
   }
 
-  .hero-slider-full {
-    height: 280px !important;
-  }
 
   .hero-full-slider::after {
     top: 280px !important;
@@ -4980,9 +4700,6 @@ html.motion-ready .mid-cta-card.reveal.is-visible:hover {
     padding-bottom: 36px !important;
   }
 
-  .hero-slider-full {
-    height: 235px !important;
-  }
 
   .hero-full-slider::after {
     top: 235px !important;
@@ -5003,20 +4720,6 @@ html.motion-ready .mid-cta-card.reveal.is-visible:hover {
   .hero-full-copy .hero-facts {
     margin-top: 18px !important;
   }
-}
-
-
-/* =========================================================
-   FULL WIDTH HERO COMPACT FINAL
-   Purpose:
-   - Reduce the oversized FV slider at browser zoom-out.
-   - Remove the large blank space between hero text and facts.
-   - Keep the full-width slider, arrows, dots, CTA, SEO, and JS intact.
-   ========================================================= */
-
-/* Desktop: smaller, safer full-width slider */
-.hero-slider-full {
-  height: clamp(260px, 22vw, 380px) !important;
 }
 
 .hero-full-slider::after {
@@ -5073,9 +4776,7 @@ html.motion-ready .mid-cta-card.reveal.is-visible:hover {
 
 /* Large desktop / zoomed-out browsers */
 @media (min-width: 1400px) {
-  .hero-slider-full {
-    height: clamp(260px, 20vw, 360px) !important;
-  }
+
 
   .hero-full-slider::after {
     top: clamp(260px, 20vw, 360px) !important;
@@ -5092,9 +4793,7 @@ html.motion-ready .mid-cta-card.reveal.is-visible:hover {
 
 /* Tablet */
 @media (max-width: 820px) {
-  .hero-slider-full {
-    height: 250px !important;
-  }
+
 
   .hero-full-slider::after {
     top: 250px !important;
@@ -5133,9 +4832,7 @@ html.motion-ready .mid-cta-card.reveal.is-visible:hover {
 
 /* Phone */
 @media (max-width: 560px) {
-  .hero-slider-full {
-    height: 210px !important;
-  }
+
 
   .hero-full-slider::after {
     top: 210px !important;
@@ -5179,9 +4876,7 @@ html.motion-ready .mid-cta-card.reveal.is-visible:hover {
 }
 
 @media (max-width: 390px) {
-  .hero-slider-full {
-    height: 190px !important;
-  }
+
 
   .hero-full-slider::after {
     top: 190px !important;
@@ -5313,33 +5008,8 @@ html.motion-ready .hero-full-copy.is-visible .hero-facts span {
   }
 }
 
-
-/* =========================================================
-   FV IMAGE QUALITY RESPONSIVE FINAL
-   Uses optimized desktop/mobile hero images.
-   Desktop: wide 1920px hero assets.
-   Mobile: square hero assets, so faces/activities are not badly cropped.
-   ========================================================= */
-
-.hero-slider-full {
-  height: clamp(340px, 31vw, 540px) !important;
-}
-
 .hero-full-slider::after {
   top: clamp(340px, 31vw, 540px) !important;
-}
-
-.hero-slide picture {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-}
-
-.hero-slide img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: center center !important;
 }
 
 /* Give the copy/CTA enough room without creating the old blank gap */
@@ -5367,9 +5037,7 @@ html.motion-ready .hero-full-copy.is-visible .hero-actions-single {
 
 /* Mobile uses square image sources; give them enough height to look natural */
 @media (max-width: 820px) {
-  .hero-slider-full {
-    height: clamp(270px, 64vw, 420px) !important;
-  }
+
 
   .hero-full-slider::after {
     top: clamp(270px, 64vw, 420px) !important;
@@ -5381,9 +5049,7 @@ html.motion-ready .hero-full-copy.is-visible .hero-actions-single {
 }
 
 @media (max-width: 560px) {
-  .hero-slider-full {
-    height: clamp(250px, 72vw, 360px) !important;
-  }
+
 
   .hero-full-slider::after {
     top: clamp(250px, 72vw, 360px) !important;
@@ -5395,208 +5061,37 @@ html.motion-ready .hero-full-copy.is-visible .hero-actions-single {
 }
 
 @media (max-width: 390px) {
-  .hero-slider-full {
-    height: clamp(230px, 72vw, 330px) !important;
-  }
+
 
   .hero-full-slider::after {
     top: clamp(230px, 72vw, 330px) !important;
   }
 }
 
-
-/* =========================================================
-   ARIAKE STYLE THREE VISIBLE SLIDER SAFE PATCH
-   Desktop: center photo large + previous/next photos peeking.
-   Mobile: one photo at a time.
-   This patch only targets .hero-slider-peek.
-   ========================================================= */
-
-.hero-slider-full.hero-slider-peek {
-  position: relative !important;
-  width: 100% !important;
-  height: clamp(330px, 34vw, 560px) !important;
-  overflow: hidden !important;
-  background: linear-gradient(180deg, rgba(255, 248, 236, 0.45), rgba(255, 248, 236, 0.12));
-}
-
 .hero-full-slider::after {
   top: clamp(330px, 34vw, 560px) !important;
 }
 
-.hero-slider-peek .hero-slider-viewport {
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-
-.hero-slider-peek .hero-slider-track {
-  position: relative !important;
-  height: 100% !important;
-  width: 100% !important;
-  transform: none !important;
-}
-
-.hero-slider-peek .hero-slide {
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  width: min(64vw, 960px) !important;
-  height: min(31vw, 470px) !important;
-  margin: 0 !important;
-  border-radius: 0 !important;
-  overflow: hidden !important;
-  opacity: 0 !important;
-  z-index: 1 !important;
-  pointer-events: none !important;
-  transform: translate(-50%, -50%) scale(0.86) !important;
-  transition: transform 900ms cubic-bezier(.22,.9,.22,1), opacity 700ms ease, filter 700ms ease !important;
-  box-shadow: 0 20px 42px rgba(37, 53, 33, 0.16);
-  filter: saturate(0.94) brightness(0.96);
-}
-
-.hero-slider-peek .hero-slide.is-active {
-  opacity: 1 !important;
-  z-index: 4 !important;
-  pointer-events: auto !important;
-  transform: translate(-50%, -50%) scale(1) !important;
-  filter: saturate(1.02) brightness(1);
-}
-
-.hero-slider-peek .hero-slide.is-prev {
-  opacity: 0.72 !important;
-  z-index: 3 !important;
-  transform: translate(calc(-50% - min(52vw, 760px)), -50%) scale(0.9) !important;
-}
-
-.hero-slider-peek .hero-slide.is-next {
-  opacity: 0.72 !important;
-  z-index: 3 !important;
-  transform: translate(calc(-50% + min(52vw, 760px)), -50%) scale(0.9) !important;
-}
-
-.hero-slider-peek .hero-slide picture,
-.hero-slider-peek .hero-slide img {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-}
-
-.hero-slider-peek .hero-slide img {
-  object-fit: cover !important;
-  object-position: center center !important;
-}
-
-.hero-slider-peek::before,
-.hero-slider-peek::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  z-index: 5;
-  width: clamp(40px, 8vw, 140px);
-  pointer-events: none;
-}
-
-.hero-slider-peek::before {
-  left: 0;
-  background: linear-gradient(90deg, rgba(255,248,236,0.92), rgba(255,248,236,0));
-}
-
-.hero-slider-peek::after {
-  right: 0;
-  background: linear-gradient(270deg, rgba(255,248,236,0.92), rgba(255,248,236,0));
-}
-
-.hero-slider-peek .hero-slider-arrow {
-  z-index: 8 !important;
-}
-
-.hero-slider-peek .hero-slider-prev {
-  left: max(28px, calc((100vw - var(--max)) / 2 + 20px)) !important;
-}
-
-.hero-slider-peek .hero-slider-next {
-  right: max(28px, calc((100vw - var(--max)) / 2 + 20px)) !important;
-}
-
-.hero-slider-peek .hero-slider-dots {
-  z-index: 8 !important;
-  bottom: 22px !important;
-}
-
 @media (max-width: 820px) {
-  .hero-slider-full.hero-slider-peek {
-    height: clamp(280px, 68vw, 430px) !important;
-  }
+
 
   .hero-full-slider::after {
     top: clamp(280px, 68vw, 430px) !important;
   }
 
-  .hero-slider-peek .hero-slide {
-    width: min(94vw, 560px) !important;
-    height: min(72vw, 420px) !important;
-    border-radius: 24px !important;
-    opacity: 0 !important;
-    transform: translate(-50%, -50%) scale(1) !important;
-  }
 
-  .hero-slider-peek .hero-slide.is-active {
-    opacity: 1 !important;
-    transform: translate(-50%, -50%) scale(1) !important;
-  }
-
-  .hero-slider-peek .hero-slide.is-prev,
-  .hero-slider-peek .hero-slide.is-next {
-    opacity: 0 !important;
-  }
-
-  .hero-slider-peek::before,
-  .hero-slider-peek::after {
-    display: none !important;
-  }
-
-  .hero-slider-peek .hero-slider-prev {
-    left: 14px !important;
-  }
-
-  .hero-slider-peek .hero-slider-next {
-    right: 14px !important;
-  }
-
-  .hero-slider-peek .hero-slider-dots {
-    bottom: 16px !important;
-  }
 }
 
 @media (max-width: 560px) {
-  .hero-slider-full.hero-slider-peek {
-    height: clamp(250px, 74vw, 360px) !important;
-  }
+
 
   .hero-full-slider::after {
     top: clamp(250px, 74vw, 360px) !important;
   }
 
-  .hero-slider-peek .hero-slide {
-    width: min(94vw, 390px) !important;
-    height: min(74vw, 340px) !important;
-    border-radius: 22px !important;
-  }
 
-  .hero-slider-peek .hero-slider-arrow {
-    width: 38px !important;
-    height: 38px !important;
-    font-size: 1.6rem !important;
-  }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .hero-slider-peek .hero-slide {
-    transition: none !important;
-  }
-}
 
 /* =========================================================
    TOP WAITLIST CTA BAR
@@ -5786,28 +5281,6 @@ html.motion-ready .hero-full-copy.is-visible .hero-actions-single {
 
 .fv-peek-next {
   right: max(4px, calc(50% - 160px));
-}
-
-.fv-peek-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.fv-peek-dots button {
-  width: 28px;
-  height: 10px;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(47, 93, 53, 0.22);
-  cursor: pointer;
-  transition: background 0.25s ease, transform 0.25s ease;
-}
-
-.fv-peek-dots button.is-active {
-  background: #63b246;
-  transform: scale(1.02);
 }
 
 @media (max-width: 900px) {
@@ -6415,36 +5888,10 @@ h1 {
   }
 }
 
-/* =========================================================
-   FINAL FV LIGHTBOX OFF + CACHE-SAFE BEHAVIOR
-   FV / hero images should not open a dark lightbox.
-   Gallery, program, and portrait image lightboxes remain available.
-   ========================================================= */
-
-.fv-peek-slide,
-.fv-peek-slide img,
-.hero-blob,
-.hero-blob img {
-  cursor: default !important;
-}
-
-.fv-peek-slide img,
-.hero-blob img {
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* Keep the close button reliable on mobile/in-app browsers. */
-.image-lightbox-close {
-  touch-action: manipulation;
-  pointer-events: auto;
-}
 
 /* =========================================================
-   FINAL FV DOTS HIDE FIX
-   Removes the three FV slider dots. Arrows and autoplay remain.
+   FINAL V4 CLEANUP
+   Removed image overlay, FV dots, and unused old slider code.
+   FV arrows, autoplay, CTA, H1, cookie notice, and all images remain.
+   Cache version: 20260608-4
    ========================================================= */
-
-.fv-peek-dots {
-  display: none !important;
-}
-
