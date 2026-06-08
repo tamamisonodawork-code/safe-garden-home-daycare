@@ -5914,3 +5914,604 @@ h1 {
   transition: none !important;
 }
 
+/* =========================================================
+   FINAL V6 CONTENT + CV POLISH
+   Marketing copy polish, featured review, stronger waitlist heading,
+   special event support emphasis, and slightly tighter section rhythm.
+   No image size, FV slider, Google Form, or heavy feature changes.
+   ========================================================= */
+
+.featured-review-strip {
+  padding-top: 18px;
+  padding-bottom: 28px;
+}
+
+.featured-review-card {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 20px 26px;
+  border: 1px solid rgba(47, 111, 59, 0.14);
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 14px 32px rgba(56, 70, 45, 0.10);
+  text-align: center;
+}
+
+.featured-review-card .review-stars {
+  display: block;
+  margin-bottom: 8px;
+  color: #d99a2b;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+}
+
+.featured-review-card p {
+  max-width: 680px;
+  margin: 0 auto 8px;
+  color: var(--green-deep);
+  font-size: clamp(1rem, 1.6vw, 1.18rem);
+  font-weight: 850;
+  line-height: 1.5;
+}
+
+.featured-review-card strong {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.why .section-heading .section-intro {
+  max-width: 760px;
+  margin: 14px auto 0;
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+.feature-card h3 {
+  letter-spacing: -0.02em;
+}
+
+.support-card {
+  border-color: rgba(245, 189, 88, 0.42);
+  background: linear-gradient(135deg, #fff1cc, rgba(255, 255, 255, 0.92));
+}
+
+.segment-pill-celebrate {
+  border-color: rgba(210, 119, 88, 0.36);
+  background: linear-gradient(135deg, #ffe3cf, #fff1cc);
+  color: #8a5b0f;
+}
+
+.waitlist-intro {
+  padding: clamp(22px, 3.2vw, 34px);
+  border: 1px solid rgba(47, 111, 59, 0.13);
+  border-radius: 32px;
+  background: linear-gradient(135deg, rgba(232, 243, 228, 0.92), rgba(255, 255, 255, 0.72));
+  box-shadow: 0 18px 42px rgba(56, 70, 45, 0.08);
+}
+
+.waitlist-intro h2 {
+  display: inline-block;
+  padding: 0.08em 0.35em 0.14em;
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(232, 243, 228, 0.9), rgba(255, 241, 204, 0.78));
+}
+
+@media (min-width: 821px) {
+  .section-pad {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .section-pad-sm {
+    padding-top: 46px;
+    padding-bottom: 46px;
+  }
+}
+
+@media (max-width: 820px) {
+  .featured-review-strip {
+    padding-top: 12px;
+    padding-bottom: 22px;
+  }
+
+  .featured-review-card {
+    padding: 18px 18px;
+    border-radius: 22px;
+  }
+
+  .featured-review-card p {
+    font-size: 0.98rem;
+  }
+
+  .why .section-heading .section-intro {
+    font-size: 0.96rem;
+  }
+
+  .waitlist-intro {
+    padding: 22px 18px;
+    border-radius: 26px;
+  }
+
+  .waitlist-intro h2 {
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+  }
+}
+
+@media (max-width: 560px) {
+  .feature-card p {
+    font-size: 0.94rem;
+    line-height: 1.58;
+  }
+
+  .support-card {
+    gap: 14px;
+  }
+}
+
+/* =========================================================
+   FINAL V7 POLISH
+   Fix waiting-list heading highlight, update featured review
+   presentation, and support more emotional About copy.
+   ========================================================= */
+
+.reviews .section-heading .section-intro {
+  max-width: 680px;
+  margin: 12px auto 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.featured-review-card p {
+  max-width: 760px;
+}
+
+/* Fix the waiting-list heading highlight.
+   The v6 inline-block pill was too wide and looked broken on desktop.
+   This uses a softer text highlight that can wrap naturally. */
+.waitlist-intro h2 {
+  display: inline;
+  padding: 0 0.12em;
+  border-radius: 0;
+  background: linear-gradient(180deg, transparent 52%, rgba(255, 241, 204, 0.95) 52%);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.waitlist-intro {
+  max-width: 980px;
+}
+
+.waitlist-intro p {
+  max-width: 760px;
+}
+
+/* Make the facts sit a little lower so the title area has breathing room. */
+.waitlist-facts {
+  margin-top: 32px;
+}
+
+.seo-summary h2 + p {
+  margin-top: 18px;
+}
+
+.seo-summary p {
+  max-width: 840px;
+}
+
+@media (max-width: 820px) {
+  .waitlist-intro h2 {
+    display: inline;
+    line-height: 1.08;
+  }
+
+  .waitlist-intro p {
+    max-width: 560px;
+  }
+
+  .waitlist-facts {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 560px) {
+  .featured-review-card p {
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .waitlist-intro h2 {
+    font-size: clamp(2.05rem, 11vw, 3rem);
+  }
+}
+
+/* =========================================================
+   FINAL V8 REVIEW + FAQ + FOOD COPY POLISH
+   Keeps v7 waiting-list heading fix. No image/FV/form changes.
+   ========================================================= */
+
+.faq .section-heading h2 {
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.featured-review-card strong,
+.review-card strong {
+  color: var(--green-deep);
+}
+
+@media (max-width: 560px) {
+  .faq .section-heading h2 {
+    font-size: clamp(1.9rem, 9.4vw, 2.65rem);
+  }
+}
+
+/* =========================================================
+   FINAL V9 WAITING LIST HEADING LAYOUT FIX
+   Keep the eyebrow and heading on separate centered lines.
+   No copy, image, form, slider, FAQ, or review changes.
+   ========================================================= */
+
+.waitlist-intro {
+  display: block;
+  text-align: center;
+}
+
+.waitlist-intro .eyebrow,
+.waitlist-intro .segment-pill {
+  display: inline-flex;
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto 18px;
+  vertical-align: middle;
+}
+
+.waitlist-intro h2 {
+  display: block !important;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 18px;
+  padding: 0.04em 0.24em 0.1em;
+  border-radius: 18px;
+  background: linear-gradient(180deg, transparent 50%, rgba(255, 241, 204, 0.96) 50%) !important;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  line-height: 1.05;
+  text-align: center;
+}
+
+.waitlist-intro p:not(.eyebrow) {
+  clear: both;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 820px) {
+  .waitlist-intro .eyebrow,
+  .waitlist-intro .segment-pill {
+    margin-bottom: 16px;
+  }
+
+  .waitlist-intro h2 {
+    width: fit-content;
+    margin-bottom: 16px;
+    padding-left: 0.18em;
+    padding-right: 0.18em;
+    line-height: 1.08;
+  }
+}
+
+@media (max-width: 560px) {
+  .waitlist-intro h2 {
+    font-size: clamp(2rem, 10.4vw, 3rem);
+    border-radius: 14px;
+  }
+}
+
+/* =========================================================
+   FINAL V10 CONTENT FEEDBACK POLISH
+   Emotional H2s, unique review cards, owner credibility,
+   FAQ food priority. No image/FV/form/heavy feature changes.
+   ========================================================= */
+
+.seo-summary h2 {
+  max-width: 980px;
+}
+
+.seo-summary p {
+  max-width: 860px;
+}
+
+.review-card p {
+  font-size: 1.02rem;
+  line-height: 1.68;
+}
+
+@media (max-width: 820px) {
+  .seo-summary h2 {
+    font-size: clamp(1.9rem, 7.6vw, 2.8rem);
+  }
+}
+
+@media (max-width: 560px) {
+  .review-card p {
+    font-size: 0.96rem;
+    line-height: 1.6;
+  }
+}
+
+/* =========================================================
+   FINAL V11 WAITLIST + OWNER COPY POLISH
+   Removes waitlist fact boxes, shortens owner section layout,
+   and keeps the form path cleaner. No image/FV/form changes.
+   ========================================================= */
+
+.waitlist-facts {
+  display: none !important;
+}
+
+.waitlist-intro {
+  margin-bottom: 22px;
+}
+
+.about-copy p {
+  line-height: 1.56;
+}
+
+.about-copy p + p {
+  margin-top: 10px;
+}
+
+.about-copy blockquote {
+  margin-top: 16px;
+  margin-bottom: 14px;
+}
+
+.about-copy .badges {
+  gap: 7px;
+}
+
+.about-copy .badges > span {
+  min-height: 32px;
+  padding: 7px 10px;
+  font-size: 0.78rem;
+}
+
+@media (min-width: 821px) {
+  .about-grid {
+    align-items: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .waitlist-intro {
+    margin-bottom: 18px;
+  }
+
+  .about-copy p {
+    font-size: 0.91rem;
+    line-height: 1.54;
+  }
+}
+
+/* =========================================================
+   FINAL V15 MOBILE OWNER INTRO COPY FIX
+   Avoid repeating the same Chonon heading on mobile.
+   No image/FV/form/FAQ/review changes.
+   ========================================================= */
+
+.owner-mobile-intro h2 {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+@media (max-width: 560px) {
+  .owner-mobile-intro h2 {
+    font-size: clamp(2.05rem, 9.8vw, 3rem);
+    line-height: 1.05;
+  }
+}
+
+/* =========================================================
+   FINAL V17 MOBILE PILL + WAITLIST COPY POLISH
+   Center section pills on mobile and shorten the form intro copy.
+   No image/FV/form/FAQ/review changes.
+   ========================================================= */
+
+@media (max-width: 820px) {
+  .lillio-copy .eyebrow,
+  .routine-copy .eyebrow,
+  .section-heading .eyebrow {
+    display: inline-flex;
+    width: fit-content;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .lillio-copy,
+  .routine-copy {
+    text-align: center;
+  }
+
+  .lillio-copy .check-list,
+  .routine-copy .check-list {
+    text-align: left;
+  }
+}
+
+@media (max-width: 560px) {
+  .lillio-copy .eyebrow,
+  .routine-copy .eyebrow,
+  .section-heading .eyebrow {
+    display: flex;
+    width: fit-content;
+    max-width: min(100%, 92vw);
+  }
+
+  .waitlist-intro p:not(.eyebrow) {
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+}
+
+/* =========================================================
+   FINAL V18 MOBILE SECTION LABEL ALIGNMENT
+   Final detail polish: center section label pills on mobile.
+   Does not change large H2, body text, images, FV slider, forms, FAQ, or reviews.
+   ========================================================= */
+
+@media (max-width: 820px) {
+  /* Center all small section label pills on mobile for a consistent LP rhythm. */
+  .eyebrow.segment-pill,
+  .owner-mobile-kicker,
+  .notice-cta-button {
+    display: inline-flex;
+    width: fit-content;
+    max-width: min(100%, 92vw);
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Keep label-only sections visually centered without forcing body copy to center. */
+  .section-heading,
+  .owner-mobile-intro,
+  .waitlist-intro {
+    text-align: center;
+  }
+
+  .about-copy .eyebrow.segment-pill,
+  .support-card .eyebrow.segment-pill,
+  .seo-summary .eyebrow.segment-pill,
+  .lillio-copy .eyebrow.segment-pill,
+  .routine-copy .eyebrow.segment-pill,
+  .waitlist-intro .eyebrow.segment-pill,
+  .review-card .eyebrow.segment-pill {
+    display: flex;
+  }
+
+  /* Inside content cards, keep long headlines and paragraphs easy to read. */
+  .about-copy,
+  .support-card,
+  .seo-summary,
+  .lillio-copy,
+  .routine-copy {
+    text-align: left;
+  }
+
+  /* But keep their small label pills centered. */
+  .about-copy > .eyebrow.segment-pill,
+  .support-card .eyebrow.segment-pill,
+  .seo-summary .eyebrow.segment-pill,
+  .lillio-copy > .eyebrow.segment-pill,
+  .routine-copy > .eyebrow.segment-pill {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Lists and cards should remain left-readable. */
+  .check-list,
+  .faq-grid,
+  .review-grid,
+  .feature-grid,
+  .program-grid,
+  .gallery-grid {
+    text-align: left;
+  }
+}
+
+@media (max-width: 560px) {
+  .eyebrow.segment-pill,
+  .owner-mobile-kicker {
+    min-height: 44px;
+    padding-left: 18px;
+    padding-right: 18px;
+    line-height: 1.2;
+  }
+
+  .support-card .eyebrow.segment-pill,
+  .about-copy .eyebrow.segment-pill,
+  .lillio-copy .eyebrow.segment-pill,
+  .routine-copy .eyebrow.segment-pill {
+    margin-bottom: 14px;
+  }
+
+  /* Avoid overly-wide label pills touching the edges on small phones. */
+  .section-heading .eyebrow.segment-pill,
+  .waitlist-intro .eyebrow.segment-pill,
+  .owner-mobile-kicker {
+    max-width: min(92vw, 560px);
+  }
+}
+
+/* =========================================================
+   FINAL V19 MOBILE LONG TEXT ALIGNMENT FIX
+   Keep small label pills centered, but keep long explanatory text left-aligned.
+   This is a CSS-only visual correction; no image/FV/form/FAQ/review changes.
+   ========================================================= */
+
+@media (max-width: 820px) {
+  /* Section labels can stay centered. */
+  .section-heading .eyebrow.segment-pill {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Long explanatory copy should not inherit centered alignment on mobile. */
+  .section-heading .section-intro,
+  .section-heading > p:not(.eyebrow):not(.segment-pill),
+  .program .section-heading .section-intro,
+  .why .section-heading .section-intro,
+  .activities .section-heading .section-intro,
+  .reviews .section-heading .section-intro,
+  .faq .section-heading .section-intro {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+  }
+
+  /* Keep content paragraphs inside cards readable. */
+  .image-card p,
+  .feature-card p,
+  .review-card p,
+  .support-card p,
+  .about-copy p,
+  .seo-summary p,
+  .lillio-copy p,
+  .routine-copy p,
+  .subsidy-card p,
+  .subsidy-detail-card p,
+  .waitlist-intro p:not(.eyebrow),
+  .mid-cta-card p:not(.eyebrow):not(.cta-microcopy) {
+    text-align: left;
+  }
+
+  /* These can remain centered because they are short heading areas. */
+  .waitlist-intro,
+  .owner-mobile-intro {
+    text-align: center;
+  }
+
+  .waitlist-intro p:not(.eyebrow) {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .section-heading .section-intro,
+  .section-heading > p:not(.eyebrow):not(.segment-pill) {
+    font-size: 0.96rem;
+    line-height: 1.58;
+  }
+}
+
