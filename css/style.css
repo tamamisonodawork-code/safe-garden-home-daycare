@@ -6439,3 +6439,12 @@ h1 {
   pointer-events: auto;
 }
 
+/* =========================================================
+   FINAL FV DOTS HIDE FIX
+   Removes the three FV slider dots. Arrows and autoplay remain.
+   ========================================================= */
+
+.fv-peek-dots {
+  display: none !important;
+}
+
