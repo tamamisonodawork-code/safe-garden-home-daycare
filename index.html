@@ -32,7 +32,7 @@
   <meta property="og:description" content="Licensed multi-age home daycare in Coquitlam for children around 18 months to 5 years old. Small-group childcare, toddler care, play-based learning, Lillio updates, breakfast and snacks, and CCFRI support." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://safegardenhomedaycare.ca/" />
-  <meta property="og:image" content="https://safegardenhomedaycare.ca/images/safe-garden-home-daycare-coquitlam-children-activities.webp" />
+  <meta property="og:image" content="https://safegardenhomedaycare.ca/images/safe-garden-home-daycare-coquitlam-gardening-with-teacher-desktop.webp" />
   <meta name="twitter:card" content="summary_large_image" />
 
 
@@ -72,7 +72,7 @@
   ],
   "description": "Safe Garden Home Daycare is a licensed multi-age home daycare in Coquitlam, BC near Lougheed Town Centre and Burquitlam Station for children around 18 months to 5 years old, offering small-group childcare, toddler care, play-based learning, breakfast and snacks, daily Lillio updates, and CCFRI support.",
   "priceRange": "$$",
-  "image": "https://safegardenhomedaycare.ca/images/safe-garden-home-daycare-coquitlam-children-activities.webp"
+  "image": "https://safegardenhomedaycare.ca/images/safe-garden-home-daycare-coquitlam-gardening-with-teacher-desktop.webp"
 }
   </script>
 
@@ -257,6 +257,7 @@
       margin: 0 auto;
     }
 
+
     .faq-card.faq-accordion-item {
       padding: 0;
       overflow: hidden;
@@ -391,54 +392,102 @@
         <a href="#reviews">Reviews</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
-        <a class="nav-cta" href="#waiting-list">Join Waiting List</a>
+        <a class="nav-cta" href="#waiting-list">Secure Your Spot</a>
       </nav>
     </div>
   </header>
 
   <main id="top">
-    <section class="notice-bar" aria-label="Availability notice">
-      <a href="#waiting-list" class="notice-link">
-        <div class="container notice-inner">
-          <span class="notice-icon" aria-hidden="true">♡</span>
-          <p>Currently accepting families for future openings.</p>
+    <section class="notice-bar notice-cta-bar" aria-label="Waiting list call to action">
+      <a href="#waiting-list" class="notice-link notice-cta-link">
+        <div class="container notice-cta-inner">
+          <span class="notice-cta-button">
+            <span class="desktop-only">Join the Waiting List Today</span>
+            <span class="mobile-only">Join the Waiting List</span>
+          </span>
+          <span class="notice-cta-text">Now accepting waitlist inquiries for future openings</span>
         </div>
       </a>
     </section>
 
-    <section class="hero" aria-label="Safe Garden Home Daycare hero">
-      <div class="container hero-grid">
-        <div class="hero-content reveal">
-          <p class="eyebrow segment-pill segment-pill-owner">Licensed owner-led care in Coquitlam</p>
-
-          <h1>Safe Garden Home Daycare in Coquitlam</h1>
-
-          <p class="hero-text">
-            A multi-age licensed home daycare in Coquitlam, BC where children can play, collaborate, and learn in a safe, nurturing, family-like environment. Conveniently located near Lougheed Town Centre, Burquitlam Station, Port Moody, and Burnaby.
-          </p>
-
-          <div class="hero-facts" aria-label="Daycare quick facts">
-            <span>📍 606 Denton St, Coquitlam, BC</span>
-            <span>👧 Around 18 Months – 5 Years</span>
-            <span>👥 Up to 8 Children</span>
-            <span>🕒 Mon–Fri · 7:30 AM – 5:00 PM</span>
-          </div>
-
-          <div class="hero-actions hero-actions-single">
-            <a class="btn btn-primary hero-waitlist-btn" href="#waiting-list">Join the Waiting List</a>
-            <p class="hero-cta-microcopy">Easy to join. No commitment needed.</p>
-          </div>
+    <section class="hero hero-full-slider" aria-label="Safe Garden Home Daycare hero">
+      <!-- FV hero slider: keeps a center image visible at all times (no empty gap while rotating) -->
+      <div class="fv-peek-carousel" aria-label="Safe Garden Home Daycare photo slider">
+        <div class="fv-peek-stage" id="fvPeekStage">
+          <figure class="fv-peek-slide fv-pos-center">
+            <picture>
+              <source media="(max-width: 700px)" srcset="images/safe-garden-home-daycare-coquitlam-gardening-with-teacher-mobile.webp">
+              <img
+                src="images/safe-garden-home-daycare-coquitlam-gardening-with-teacher-desktop.webp"
+                alt="Children gardening with a teacher at Safe Garden Home Daycare in Coquitlam"
+                fetchpriority="high"
+                width="1600"
+                height="650"
+              />
+            </picture>
+          </figure>
+          <figure class="fv-peek-slide fv-pos-right">
+            <picture>
+              <source media="(max-width: 700px)" srcset="images/safe-garden-home-daycare-coquitlam-diverse-small-group-porch-hero-mobile.webp">
+              <img
+                src="images/safe-garden-home-daycare-coquitlam-diverse-small-group-porch-hero-desktop.webp"
+                alt="Diverse small group of children at Safe Garden Home Daycare in Coquitlam"
+                loading="lazy"
+                width="1600"
+                height="650"
+              />
+            </picture>
+          </figure>
+          <figure class="fv-peek-slide fv-pos-left">
+            <picture>
+              <source media="(max-width: 700px)" srcset="images/safe-garden-home-daycare-coquitlam-summer-water-play-hero-mobile.webp">
+              <img
+                src="images/safe-garden-home-daycare-coquitlam-summer-water-play-hero-desktop.webp"
+                alt="Children enjoying summer water play at Safe Garden Home Daycare in Coquitlam"
+                loading="lazy"
+                width="1600"
+                height="650"
+              />
+            </picture>
+          </figure>
         </div>
 
-        <div class="hero-visual reveal reveal-delay">
-          <span class="hero-orb" aria-hidden="true"></span>
+        <button class="fv-peek-arrow fv-peek-prev" type="button" aria-label="Previous daycare photo">‹</button>
+        <button class="fv-peek-arrow fv-peek-next" type="button" aria-label="Next daycare photo">›</button>
 
-          <div class="hero-blob">
-            <img
-              src="images/safe-garden-home-daycare-coquitlam-children-activities.webp"
-              alt="Children enjoying creative activities at Safe Garden Home Daycare in Coquitlam"
-            />
-          </div>
+        <div class="fv-peek-dots" aria-label="Photo slider controls">
+          <button class="is-active" type="button" aria-label="Show photo 1"></button>
+          <button type="button" aria-label="Show photo 2"></button>
+          <button type="button" aria-label="Show photo 3"></button>
+        </div>
+      </div>
+
+      <div class="container hero-full-copy reveal">
+        <p class="eyebrow segment-pill segment-pill-owner">Licensed owner-led care in Coquitlam</p>
+
+        <h1 class="hero-title">
+          <span class="hero-title-line hero-title-line-1">Safe Garden Home</span>
+          <span class="hero-title-line hero-title-line-2">Daycare in Coquitlam</span>
+        </h1>
+
+        <p class="hero-subheadline">
+          Owner-led small-group care where children feel safe, known, and nurtured.
+        </p>
+
+        <p class="hero-text">
+          A warm multi-age home daycare for children around 18 months to 5 years old, with daily Lillio updates and a calm, family-like environment near Lougheed and Burquitlam.
+        </p>
+
+        <div class="hero-actions hero-actions-single">
+          <a class="btn btn-primary hero-waitlist-btn" href="#waiting-list">Join the Waiting List</a>
+          <p class="hero-cta-microcopy">Easy to join. No commitment needed.</p>
+        </div>
+
+        <div class="hero-facts" aria-label="Daycare quick facts">
+          <span>📍 606 Denton St, Coquitlam, BC</span>
+          <span>👧 Around 18 Months – 5 Years</span>
+          <span>👥 Up to 8 Children</span>
+          <span>🕒 Mon–Fri · 7:30 AM – 5:00 PM</span>
         </div>
       </div>
     </section>
@@ -853,7 +902,7 @@
             </p>
           </div>
 
-          <a class="btn btn-secondary" href="#waiting-list">Join Waiting List</a>
+          <a class="btn btn-secondary" href="#waiting-list">Join Waitlist</a>
         </article>
 
         <div class="subsidy-detail-grid">
@@ -1067,7 +1116,7 @@
       <p class="eyebrow segment-pill segment-pill-waitlist">Registration Inquiry</p>
       <h2>Join the Waiting List</h2>
       <p>
-        Please complete our short waiting list form for future openings. We will contact you by phone or email when a suitable spot becomes available.
+        Complete the short form below to join our waiting list for future openings. It takes less than a minute, and we will contact you by phone or email when a suitable spot becomes available.
       </p>
 
       <div class="mini-facts waitlist-facts">
@@ -1140,5 +1189,109 @@
 </div>
 
 <script src="js/script.js"></script>
+<script>
+  (function () {
+    const carousel = document.querySelector('.fv-peek-carousel');
+    if (!carousel) return;
+
+    const slides = Array.from(carousel.querySelectorAll('.fv-peek-slide'));
+    const dots = Array.from(carousel.querySelectorAll('.fv-peek-dots button'));
+    const prevBtn = carousel.querySelector('.fv-peek-prev');
+    const nextBtn = carousel.querySelector('.fv-peek-next');
+    const total = slides.length;
+    let current = 0;
+    let timer;
+
+    function render() {
+      const prev = (current - 1 + total) % total;
+      const next = (current + 1) % total;
+
+      slides.forEach((slide, index) => {
+        slide.classList.remove('fv-pos-left', 'fv-pos-center', 'fv-pos-right', 'fv-hidden');
+
+        if (window.innerWidth <= 900) {
+          if (index === current) {
+            slide.classList.add('fv-pos-center');
+          } else {
+            slide.classList.add('fv-hidden');
+          }
+          return;
+        }
+
+        if (index === prev) {
+          slide.classList.add('fv-pos-left');
+        } else if (index === current) {
+          slide.classList.add('fv-pos-center');
+        } else if (index === next) {
+          slide.classList.add('fv-pos-right');
+        } else {
+          slide.classList.add('fv-hidden');
+        }
+      });
+
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('is-active', index === current);
+      });
+    }
+
+    function goTo(index) {
+      current = (index + total) % total;
+      render();
+      restartAutoplay();
+    }
+
+    function next() {
+      current = (current + 1) % total;
+      render();
+    }
+
+    function prev() {
+      current = (current - 1 + total) % total;
+      render();
+    }
+
+    function getAutoplayDelay() {
+      return window.innerWidth <= 900 ? 5000 : 4500;
+    }
+
+    function startAutoplay() {
+      stopAutoplay();
+      timer = setInterval(next, getAutoplayDelay());
+    }
+
+    function stopAutoplay() {
+      if (timer) clearInterval(timer);
+    }
+
+    function restartAutoplay() {
+      stopAutoplay();
+      startAutoplay();
+    }
+
+    prevBtn.addEventListener('click', () => {
+      prev();
+      restartAutoplay();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      next();
+      restartAutoplay();
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => goTo(index));
+    });
+
+    carousel.addEventListener('mouseenter', stopAutoplay);
+    carousel.addEventListener('mouseleave', startAutoplay);
+    window.addEventListener('resize', () => {
+      render();
+      restartAutoplay();
+    });
+
+    render();
+    startAutoplay();
+  })();
+</script>
 </body>
 </html>
