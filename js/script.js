@@ -70,7 +70,7 @@ if (cookieBox && localStorage.getItem("safeGardenCookieNotice") === "yes") {
 
 // Image lightbox: click photos to enlarge.
 const lightboxImages = document.querySelectorAll(
-  ".gallery-grid img, .program-grid img, .portrait-card img, .hero-blob img"
+  ".gallery-grid img, .program-grid img, .portrait-card img"
 );
 
 if (lightboxImages.length) {
@@ -116,10 +116,22 @@ if (lightboxImages.length) {
     });
   });
 
-  closeBtn.addEventListener("click", closeLightbox);
+  const handleCloseTap = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    closeLightbox();
+  };
+
+  closeBtn.addEventListener("click", handleCloseTap);
+  closeBtn.addEventListener("touchstart", handleCloseTap, { passive: false });
+  closeBtn.addEventListener("pointerdown", handleCloseTap);
+
   lightbox.addEventListener("click", (event) => {
     if (event.target === lightbox) closeLightbox();
   });
+  lightbox.addEventListener("touchstart", (event) => {
+    if (event.target === lightbox) closeLightbox();
+  }, { passive: true });
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
       closeLightbox();

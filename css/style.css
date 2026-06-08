@@ -6385,8 +6385,8 @@ h1 {
 }
 
 /* =========================================================
-   FINAL STRONG MOBILE CTA → FV GAP FIX
-   Further reduces the visible gap between the waiting-list bar and first FV image on mobile.
+   FINAL INLINE-BACKED MOBILE GAP FIX
+   Matches the critical inline CSS and keeps the mobile FV closer to the CTA bar.
    ========================================================= */
 
 @media (max-width: 900px) {
@@ -6395,11 +6395,7 @@ h1 {
   }
 
   .fv-peek-carousel {
-    margin-top: 0 !important;
-  }
-
-  .fv-peek-stage {
-    margin-top: 0 !important;
+    margin-top: -18px !important;
   }
 }
 
@@ -6409,7 +6405,7 @@ h1 {
   }
 
   .fv-peek-carousel {
-    margin-top: -2px !important;
+    margin-top: -18px !important;
   }
 
   .notice-cta-inner {
@@ -6417,5 +6413,29 @@ h1 {
     padding-top: 12px;
     padding-bottom: 12px;
   }
+}
+
+/* =========================================================
+   FINAL FV LIGHTBOX OFF + CACHE-SAFE BEHAVIOR
+   FV / hero images should not open a dark lightbox.
+   Gallery, program, and portrait image lightboxes remain available.
+   ========================================================= */
+
+.fv-peek-slide,
+.fv-peek-slide img,
+.hero-blob,
+.hero-blob img {
+  cursor: default !important;
+}
+
+.fv-peek-slide img,
+.hero-blob img {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Keep the close button reliable on mobile/in-app browsers. */
+.image-lightbox-close {
+  touch-action: manipulation;
+  pointer-events: auto;
 }
 
