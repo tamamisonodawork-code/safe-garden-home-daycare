@@ -5895,3 +5895,22 @@ h1 {
    FV arrows, autoplay, CTA, H1, cookie notice, and all images remain.
    Cache version: 20260608-4
    ========================================================= */
+
+/* =========================================================
+   FINAL V5 FV COPY ANIMATION OFF
+   Disables animation only for the first-view text/copy area.
+   FV image size, crop, slider, arrows, CTA, cookie, and lower sections stay unchanged.
+   ========================================================= */
+
+.hero-full-copy,
+.hero-full-copy .segment-pill,
+.hero-full-copy .hero-title,
+.hero-full-copy .hero-subheadline,
+.hero-full-copy .hero-text,
+.hero-full-copy .hero-actions,
+.hero-full-copy .hero-facts {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+

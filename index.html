@@ -429,7 +429,27 @@
       }
     }
   </style>
-  <link rel="stylesheet" href="css/style.css?v=20260608-4" />
+  
+  <style id="critical-fv-copy-no-animation-v5">
+    .hero-full-copy {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+
+    .hero-full-copy .segment-pill,
+    .hero-full-copy .hero-title,
+    .hero-full-copy .hero-subheadline,
+    .hero-full-copy .hero-text,
+    .hero-full-copy .hero-actions,
+    .hero-full-copy .hero-facts {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  </style>
+
+  <link rel="stylesheet" href="css/style.css?v=20260608-5" />
 
   <style>
     /* FAQ accordion polish - kept inside index.html so only HTML needs to be replaced */
@@ -641,7 +661,7 @@
         <button class="fv-peek-arrow fv-peek-next" type="button" aria-label="Next daycare photo">›</button>
 </div>
 
-      <div class="container hero-full-copy reveal">
+      <div class="container hero-full-copy">
         <p class="eyebrow segment-pill segment-pill-owner">Licensed owner-led care in Coquitlam</p>
 
         <h1 class="hero-title">
@@ -1367,7 +1387,7 @@
   <button onclick="acceptCookie()">Got it</button>
 </div>
 
-<script src="js/script.js?v=20260608-4"></script>
+<script src="js/script.js?v=20260608-5"></script>
 <script>
   (function () {
     const carousel = document.querySelector('.fv-peek-carousel');
