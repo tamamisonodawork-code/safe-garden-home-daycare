@@ -311,18 +311,6 @@ p {
   pointer-events: none;
 }
 
-.hero-grid {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 0.96fr) minmax(390px, 0.88fr);
-  gap: 42px;
-  align-items: center;
-}
-
-.hero-content {
-  min-width: 0;
-}
-
 .hero-text {
   max-width: 600px;
   margin: 22px 0 0;
@@ -392,63 +380,7 @@ p {
   box-shadow: var(--shadow-soft);
 }
 
-.hero-visual {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  isolation: isolate;
-}
-
 /* Yellow background circle is attached to the image area, so it stays stable at 100%, 67%, and responsive widths. */
-.hero-visual::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  width: 76%;
-  height: 76%;
-  right: -6%;
-  top: 8%;
-  border-radius: 50%;
-  background: rgba(245, 189, 88, 0.22);
-  pointer-events: none;
-}
-
-.hero-blob {
-  position: relative;
-  z-index: 1;
-  width: min(100%, 540px);
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  border: 12px solid rgba(255, 255, 255, 0.88);
-  border-radius: 42% 58% 47% 53% / 48% 42% 58% 52%;
-  background: var(--peach-soft);
-  box-shadow: var(--shadow);
-  animation: floatSoft 5.5s ease-in-out infinite !important;
-  will-change: transform;
-}
-
-.hero-blob::before {
-  content: "";
-  position: absolute;
-  inset: -20px;
-  border-radius: inherit;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.38);
-  pointer-events: none;
-  z-index: 2;
-}
-
-.hero-blob img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.hero-image {
-  display: none;
-}
-
 /* Shared grids and cards */
 
 .trust-grid,
@@ -1054,15 +986,7 @@ textarea:focus {
   transition-delay: 0.12s;
 }
 
-@keyframes floatSoft {
-  0%, 100% {
-    transform: translateY(0) rotate(-1deg);
-  }
 
-  50% {
-    transform: translateY(-10px) rotate(1deg);
-  }
-}
 
 /* Tablet */
 
@@ -1075,23 +999,7 @@ textarea:focus {
     padding: 9px 9px;
   }
 
-  .hero-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(340px, 0.86fr);
-    gap: 32px;
-  }
-
-  .hero-visual::before {
-    width: 72%;
-    height: 72%;
-    right: -3%;
-    top: 10%;
-  }
-
-  .hero-blob {
-    width: min(100%, 470px);
-  }
-
-  .trust-grid {
+.trust-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 
@@ -1201,17 +1109,7 @@ textarea:focus {
     display: none;
   }
 
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .hero-content {
-    display: grid;
-    gap: 20px;
-  }
-
-  .eyebrow {
+.eyebrow {
     font-size: 0.7rem;
     letter-spacing: 0.095em;
   }
@@ -1232,26 +1130,7 @@ textarea:focus {
     line-height: 1.58;
   }
 
-  .hero-visual {
-    order: -1;
-  }
-
-  .hero-visual::before {
-    width: 64%;
-    height: 64%;
-    right: -4%;
-    top: 10%;
-    background: rgba(245, 189, 88, 0.18);
-  }
-
-  .hero-blob {
-    width: min(100%, 430px);
-    border-width: 8px;
-    border-radius: 40% 60% 48% 52% / 46% 44% 56% 54%;
-    animation: floatSoft 5.5s ease-in-out infinite !important;
-  }
-
-  .hero-facts {
+.hero-facts {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     margin-top: 0;
@@ -1360,21 +1239,7 @@ textarea:focus {
     letter-spacing: -0.045em;
   }
 
-  .hero-visual::before {
-    width: 62%;
-    height: 62%;
-    right: -5%;
-    top: 8%;
-  }
-
-  .hero-blob {
-    width: min(100%, 360px);
-    border-width: 7px;
-    border-radius: 38% 62% 48% 52% / 46% 42% 58% 54%;
-    animation: floatSoft 5.5s ease-in-out infinite !important;
-  }
-
-  .hero-facts {
+.hero-facts {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -1501,9 +1366,6 @@ textarea:focus {
     transition: none;
   }
 
-  .leaf {
-    animation: none !important;
-  }
 }
 
 
@@ -1513,99 +1375,6 @@ textarea:focus {
    Hero circle + EN/FR language badge + polished form section.
    Place this at the very bottom of style.css.
    ========================================================= */
-
-/* -----------------------------
-   HERO DECORATION FIX
------------------------------ */
-
-.hero::after {
-  display: none !important;
-}
-
-.hero-visual::before {
-  display: none !important;
-}
-
-.hero-visual {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  isolation: isolate;
-  overflow: visible;
-}
-
-.hero-orb {
-  position: absolute;
-  right: -5%;
-  top: 9%;
-  width: clamp(230px, 30vw, 380px);
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  background: rgba(245, 189, 88, 0.22);
-  z-index: 0;
-  pointer-events: none;
-}
-
-.hero-blob {
-  position: relative;
-  z-index: 2;
-  width: min(100%, 520px);
-  animation: floatSoft 5.5s ease-in-out infinite !important;
-  will-change: transform;
-}
-
-@media (max-width: 1080px) {
-  .hero-orb {
-    right: -4%;
-    top: 10%;
-    width: clamp(210px, 36vw, 330px);
-  }
-
-  .hero-blob {
-    width: min(100%, 470px);
-  }
-}
-
-@media (max-width: 820px) {
-  .hero-visual {
-    order: -1;
-    width: min(100%, 450px);
-    margin-inline: auto;
-  }
-
-  .hero-orb {
-    display: block !important;
-    right: -6%;
-    top: 10%;
-    width: min(58vw, 270px);
-    min-width: 165px;
-    opacity: 0.9;
-  }
-
-  .hero-blob {
-    width: min(100%, 420px);
-  }
-}
-
-@media (max-width: 560px) {
-  .hero-visual {
-    max-width: 380px;
-  }
-
-  .hero-orb {
-    display: block !important;
-    right: -7%;
-    top: 9%;
-    width: min(52vw, 220px);
-    min-width: 145px;
-    opacity: 0.9;
-  }
-
-  .hero-blob {
-    width: min(100%, 360px);
-  }
-}
 
 /* -----------------------------
    EN / FR LANGUAGE BADGE
@@ -2168,11 +1937,7 @@ blockquote {
     padding-top: 26px;
   }
 
-  .hero-content {
-    gap: 16px;
-  }
-
-  .hero-text {
+.hero-text {
     margin-top: 0 !important;
   }
 
@@ -2895,10 +2660,6 @@ blockquote {
 }
 
 /* Keep the floating hero image soft but not distracting. */
-.hero-blob {
-  animation: floatSoft 5.5s ease-in-out infinite !important;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .reveal.is-visible,
@@ -2910,9 +2671,6 @@ blockquote {
     animation: none !important;
   }
 
-  .hero-blob {
-    animation: none !important;
-  }
 }
 
 /* ===== Hero single CTA: larger waitlist button ===== */
@@ -2948,13 +2706,6 @@ blockquote {
     padding: 0 22px;
   }
 }
-
-/* =========================================================
-   STABLE SOFT MOTION + LIGHTBOX FINAL
-   - No repeated in/out motion, so desktop scroll does not jitter
-   - Soft Ariake-style fade-up once per element
-   - Keeps image click-to-enlarge
-   ========================================================= */
 
 html:not(.motion-ready) .reveal {
   opacity: 1 !important;
@@ -3113,27 +2864,6 @@ html.motion-ready .hero-facts span {
     box-shadow 0.22s ease;
 }
 
-html.motion-ready .hero-content.is-visible .hero-facts span {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-}
-
-html.motion-ready .hero-content.is-visible .hero-facts span:nth-child(1) {
-  transition-delay: 0.12s;
-}
-
-html.motion-ready .hero-content.is-visible .hero-facts span:nth-child(2) {
-  transition-delay: 0.20s;
-}
-
-html.motion-ready .hero-content.is-visible .hero-facts span:nth-child(3) {
-  transition-delay: 0.28s;
-}
-
-html.motion-ready .hero-content.is-visible .hero-facts span:nth-child(4) {
-  transition-delay: 0.36s;
-}
-
 /* Hero CTA appears after the fact cards */
 html.motion-ready .hero-actions-single {
   opacity: 0;
@@ -3141,11 +2871,6 @@ html.motion-ready .hero-actions-single {
   transition:
     opacity 0.72s cubic-bezier(0.22, 1, 0.36, 1) 0.46s,
     transform 0.72s cubic-bezier(0.22, 1, 0.36, 1) 0.46s;
-}
-
-html.motion-ready .hero-content.is-visible .hero-actions-single {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
 }
 
 /* Gentle CTA breathing motion: subtle, not salesy */
@@ -4034,11 +3759,7 @@ html.motion-ready .mid-cta-card.reveal.is-visible:hover {
   .map-button,
   .subsidy-card .btn,
   .subsidy-card .btn-secondary,
-  .hero-blob {
-    animation: none !important;
-  }
-
-  .btn,
+.btn,
   .nav-cta,
   .map-button,
   .notice-link,
@@ -4076,30 +3797,7 @@ html.motion-ready .mid-cta-card.reveal.is-visible:hover {
     padding: 26px 0 44px !important;
   }
 
-  .hero-grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 24px !important;
-  }
-
-  .hero-content {
-    order: 1 !important;
-    display: grid !important;
-    gap: 16px !important;
-  }
-
-  .hero-visual {
-    order: 2 !important;
-    width: min(100%, 390px) !important;
-    margin: 6px auto 0 !important;
-  }
-
-  .hero-blob {
-    width: min(100%, 360px) !important;
-    border-width: 8px !important;
-  }
-
-  .hero-text {
+.hero-text {
     margin-top: 0 !important;
   }
 
@@ -4167,14 +3865,6 @@ html.motion-ready .mid-cta-card.reveal.is-visible:hover {
     font-size: 0.68rem !important;
   }
 
-  .hero-visual {
-    width: min(100%, 345px) !important;
-  }
-
-  .hero-blob {
-    width: min(100%, 330px) !important;
-    border-width: 7px !important;
-  }
 }
 
 @media (max-width: 390px) {
@@ -4192,13 +3882,6 @@ html.motion-ready .mid-cta-card.reveal.is-visible:hover {
     font-size: 0.68rem !important;
   }
 
-  .hero-visual {
-    width: min(100%, 320px) !important;
-  }
-
-  .hero-blob {
-    width: min(100%, 305px) !important;
-  }
 }
 
 /* Mobile shimmer: hover does not exist on phones, so animate the shine automatically */
@@ -4566,10 +4249,6 @@ html.motion-ready .mid-cta-card.reveal.is-visible:hover {
 .hero-full-slider .hero-grid,
 .hero-full-slider .hero-visual,
 .hero-full-slider .hero-blob,
-.hero-full-slider .hero-orb {
-  display: none !important;
-}
-
 /* Mobile: keep CTA visible quickly, but retain full-width slider feel */
 @media (max-width: 820px) {
   .hero-full-slider {
@@ -5890,13 +5569,6 @@ h1 {
 
 
 /* =========================================================
-   FINAL V4 CLEANUP
-   Removed image overlay, FV dots, and unused old slider code.
-   FV arrows, autoplay, CTA, H1, cookie notice, and all images remain.
-   Cache version: 20260608-4
-   ========================================================= */
-
-/* =========================================================
    FINAL V5 FV COPY ANIMATION OFF
    Disables animation only for the first-view text/copy area.
    FV image size, crop, slider, arrows, CTA, cookie, and lower sections stay unchanged.
@@ -6514,4 +6186,39 @@ h1 {
     line-height: 1.58;
   }
 }
+
+/* =========================================================
+   FINAL V20 SAFE CSS CLEANUP
+   Removed obsolete lightbox/dots/old blob/leaf styling.
+   This defensive block prevents old UI artifacts if stale classes appear.
+   ========================================================= */
+
+.fv-peek-dots,
+.fv-peek-dot,
+.hero-dots,
+.hero-dot,
+.slider-dots,
+.slider-dot,
+.image-lightbox,
+.gallery-lightbox,
+.lightbox,
+.image-modal,
+.photo-modal,
+.lightbox-close,
+.close-lightbox,
+.leaf,
+.hero-orb {
+  display: none !important;
+}
+
+.hero-blob,
+.hero-visual,
+.hero-grid,
+.hero-content,
+.hero-image {
+  animation: none !important;
+}
+
+/* Current FV uses .hero-full-slider and .fv-peek-*.
+   Do not recreate old floating circles, image lightbox, or dot navigation. */
 
