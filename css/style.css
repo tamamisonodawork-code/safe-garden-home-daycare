@@ -41,10 +41,7 @@ body {
   min-width: 320px;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--ink);
-  background:
-    radial-gradient(circle at 86% 12%, rgba(245, 189, 88, 0.18), transparent 24rem),
-    radial-gradient(circle at 10% 8%, rgba(79, 138, 87, 0.12), transparent 20rem),
-    linear-gradient(180deg, var(--cream) 0%, #fffaf1 50%, #f7f6ec 100%);
+  background: linear-gradient(180deg, var(--cream) 0%, #fffaf1 50%, #f7f6ec 100%);
   overflow-x: hidden;
 }
 
@@ -811,9 +808,7 @@ blockquote {
 /* Waitlist */
 
 .waiting-list {
-  background:
-    radial-gradient(circle at 16% 10%, rgba(245, 189, 88, 0.18), transparent 26rem),
-    linear-gradient(180deg, rgba(232, 243, 228, 0.65), rgba(255, 248, 236, 0.2));
+  background: linear-gradient(180deg, rgba(232, 243, 228, 0.52), rgba(255, 248, 236, 0.18));
 }
 
 .waitlist-grid {
@@ -1462,37 +1457,17 @@ textarea:focus {
 .waiting-list {
   position: relative;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 8% 22%, rgba(111, 146, 98, 0.10), transparent 14rem),
-    radial-gradient(circle at 88% 18%, rgba(240, 223, 180, 0.72), transparent 18rem),
-    radial-gradient(circle at 92% 86%, rgba(111, 146, 98, 0.10), transparent 12rem),
-    linear-gradient(180deg, #f7f8ef 0%, #fdfcf7 100%);
+  background: linear-gradient(180deg, #f7f8ef 0%, #fdfcf7 100%);
 }
 
 .waiting-list::before {
-  content: "";
-  position: absolute;
-  left: -60px;
-  top: 130px;
-  width: 180px;
-  height: 220px;
-  border-radius: 45% 55% 60% 40% / 50% 42% 58% 50%;
-  background: rgba(109, 149, 89, 0.10);
-  z-index: 0;
-  pointer-events: none;
+  display: none;
+  content: none;
 }
 
 .waiting-list::after {
-  content: "";
-  position: absolute;
-  right: -70px;
-  bottom: 70px;
-  width: 210px;
-  height: 210px;
-  border-radius: 50%;
-  background: rgba(109, 149, 89, 0.08);
-  z-index: 0;
-  pointer-events: none;
+  display: none;
+  content: none;
 }
 
 .waiting-list .container {
@@ -1609,18 +1584,14 @@ textarea:focus {
 
 @media (max-width: 560px) {
   .waiting-list::before {
-    left: -70px;
-    top: 140px;
-    width: 150px;
-    height: 180px;
-  }
+  display: none;
+  content: none;
+}
 
   .waiting-list::after {
-    right: -55px;
-    bottom: 36px;
-    width: 140px;
-    height: 140px;
-  }
+  display: none;
+  content: none;
+}
 
   .waitlist-facts {
     grid-template-columns: 1fr;
@@ -6221,4 +6192,17 @@ h1 {
 
 /* Current FV uses .hero-full-slider and .fv-peek-*.
    Do not recreate old floating circles, image lightbox, or dot navigation. */
+
+/* =========================================================
+   FINAL DECORATION SAFETY
+   Keeps removed old decorative effects off without changing real content cards.
+   CCFRI / ACCB card corner circles are intentionally kept.
+   ========================================================= */
+
+.leaf,
+.hero-orb,
+.hero-blob {
+  display: none !important;
+  animation: none !important;
+}
 
