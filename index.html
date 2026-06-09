@@ -398,7 +398,7 @@
       transition: none !important;
     }
   </style>
-<link href="css/style.css?v=20260608-20" rel="stylesheet"/>
+<link href="css/style.css?v=20260609-v17" rel="stylesheet"/>
 <style>
     /* FAQ accordion polish - kept inside index.html so only HTML needs to be replaced */
     .faq-grid.faq-accordion {
@@ -969,19 +969,29 @@
 </section>
 <section class="waiting-list section-pad" id="waiting-list">
 <div class="container">
-<div class="waitlist-intro reveal">
+<div class="waitlist-intro">
 <p class="eyebrow segment-pill segment-pill-waitlist">Registration Inquiry</p>
-<h2>Join the Waiting List</h2>
-<p>Joining early is the best way to be considered when a suitable spot becomes available.</p>
+<h2 class="waitlist-title">Join the Waiting List</h2><p class="waitlist-subtext">Submit your inquiry early for future openings.</p>
+
 </div>
-<div class="google-form-card reveal reveal-delay">
+
+<div class="google-form-card">
+<div class="desktop-form-embed" aria-label="Embedded Google Form for desktop and tablet">
 <div class="google-form-wrap">
-<iframe frameborder="0" height="1180" marginheight="0" marginwidth="0" src="https://docs.google.com/forms/d/e/1FAIpQLSfipOwOcq_qoH2WYsiYTyxlH2eqXnUsyC6VCSdmUK0O48_aaA/viewform?embedded=true" title="Safe Garden Home Daycare Waiting List Form" width="100%">
+<iframe data-google-form-src="https://docs.google.com/forms/d/e/1FAIpQLSfipOwOcq_qoH2WYsiYTyxlH2eqXnUsyC6VCSdmUK0O48_aaA/viewform?embedded=true" frameborder="0" height="1500" loading="lazy" marginheight="0" marginwidth="0" scrolling="no" src="about:blank" title="Safe Garden Home Daycare Waiting List Form" width="100%">
           Loading…
         </iframe>
 </div>
+</div>
+<div class="mobile-form-open" aria-label="Open waiting list form on mobile">
+<p class="mobile-form-kicker">Quick mobile form</p>
+<h3>Join the Waiting List</h3>
+<p>Submit your inquiry early for future openings.</p>
+<a class="btn mobile-form-button" href="https://docs.google.com/forms/d/e/1FAIpQLSfipOwOcq_qoH2WYsiYTyxlH2eqXnUsyC6VCSdmUK0O48_aaA/viewform" rel="noopener" target="_blank">Tap to Start the Form</a>
+<p class="mobile-form-small">Easy to fill. No commitment. No Google login required.</p>
+</div>
 <p class="waitlist-note">
-        Your information is used only for Safe Garden Home Daycare registration inquiries. We will contact you directly when a spot becomes available.
+        Your information is only used to respond to your daycare inquiry.
       </p>
 </div>
 </div>
@@ -1099,6 +1109,23 @@ window.addEventListener('resize', () => {
 
     render();
     startAutoplay();
+  })();
+</script>
+
+<script>
+  (function () {
+    const formFrame = document.querySelector('#waiting-list iframe[data-google-form-src]');
+    if (!formFrame) return;
+
+    function loadDesktopForm() {
+      const shouldLoad = window.matchMedia('(min-width: 701px)').matches;
+      if (shouldLoad && formFrame.getAttribute('src') === 'about:blank') {
+        formFrame.setAttribute('src', formFrame.dataset.googleFormSrc);
+      }
+    }
+
+    loadDesktopForm();
+    window.addEventListener('resize', loadDesktopForm, { passive: true });
   })();
 </script>
 </body>
