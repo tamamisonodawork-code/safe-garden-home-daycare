@@ -1124,20 +1124,23 @@ textarea:focus {
 
   .site-nav {
     position: fixed;
-    top: calc(var(--header-h) + 10px);
+    top: calc(var(--header-h) + 8px);
     left: 14px;
     right: 14px;
     display: grid;
-    gap: 8px;
-    padding: 18px;
+    max-height: calc(100dvh - var(--header-h) - 28px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    gap: 4px;
+    padding: 14px;
     border: 1px solid var(--line);
-    border-radius: 24px;
-    background: rgba(255, 253, 247, 0.98);
+    border-radius: 22px;
+    background: #fffdf7;
     box-shadow: var(--shadow);
     opacity: 0;
     pointer-events: none;
-    transform: translateY(-12px);
-    transition: opacity 0.22s ease, transform 0.22s ease;
+    transform: translateY(-10px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
   }
 
   .site-nav.is-open {
@@ -1147,11 +1150,16 @@ textarea:focus {
   }
 
   .site-nav a {
-    padding: 14px 16px;
+    padding: 11px 14px;
   }
 
   .nav-cta {
+    min-height: 50px;
+    margin-top: 6px;
     margin-left: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
   }
 
@@ -1322,6 +1330,27 @@ textarea:focus {
     width: 44px;
     height: 44px;
     border-radius: 16px;
+  }
+
+  .site-nav {
+    top: calc(var(--header-h) + 6px);
+    left: 12px;
+    right: 12px;
+    max-height: calc(100dvh - var(--header-h) - 20px);
+    gap: 2px;
+    padding: 12px;
+    border-radius: 20px;
+  }
+
+  .site-nav a {
+    padding: 9px 12px;
+    font-size: 0.98rem;
+  }
+
+  .site-nav .nav-cta {
+    min-height: 48px;
+    margin-top: 6px;
+    padding: 10px 12px;
   }
 
   .hero {
@@ -3702,8 +3731,10 @@ html.motion-ready .mid-cta-card.reveal.is-visible:hover {
 
   .nav-cta {
     display: inline-flex !important;
+    align-items: center !important;
     justify-content: center !important;
     width: 100% !important;
+    min-height: 50px !important;
     opacity: 1 !important;
     visibility: visible !important;
   }
@@ -4611,7 +4642,8 @@ html.motion-ready .hero-full-copy.is-visible .hero-actions-single {
   height: 82%;
   z-index: 1;
   transform: translateX(-138%) translateY(10%) scale(0.92);
-  filter: brightness(0.95);
+  opacity: 0.82;
+  filter: brightness(0.98);
 }
 
 .fv-pos-center {
@@ -4626,7 +4658,8 @@ html.motion-ready .hero-full-copy.is-visible .hero-actions-single {
   height: 82%;
   z-index: 1;
   transform: translateX(38%) translateY(10%) scale(0.92);
-  filter: brightness(0.95);
+  opacity: 0.82;
+  filter: brightness(0.98);
 }
 
 .fv-hidden {
